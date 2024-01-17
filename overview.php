@@ -11,12 +11,18 @@
 
 <h1>Arcanum Archive - track your collection of TRPG books</h1>
 
+<form>
+    <label for='title'>Title:</label>
+    <input type='text' id='title' name='title' placeholder="Enter the book's title..."></input>
+</form>
+
+
 <ul>
-    <?php foreach ($cards as $card) : ?>
-        <li><?= "Title: " . $card['name'] ?></li>
-        <li><?= "For " . $card['system'] ?></li>
-        <li><?= "Published by " . $card['publisher'] . " in " . $card['publishedYear']?></li>
-        <li><?= "MSRP: €" . $card['msrp'] ?></li>
+    <?php foreach ($books as $book) : ?>
+        <li><?= "Title: " . $book['Book'] ?></li>
+        <!-- <li><?= "For " . $book['System'] ?></li>
+        <li><?= "Published by " . $book['Publisher'] . " in " . $book['PublishedYear']?></li>
+        <li><?= "MSRP: €" . $book['MSRP'] ?></li> -->
     <?php endforeach; ?>
 </ul>
 
