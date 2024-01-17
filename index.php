@@ -34,6 +34,7 @@ switch ($action) {
         break;
     case 'edit':
         echo "Editing ...";
+        edit($databaseManager);
         break;
     case 'delete':
         echo "Deleting ...";
@@ -58,4 +59,14 @@ function create($databaseManager)
             overview($databaseManager);
     }
     else require 'createView.php';
+}
+
+function edit($databaseManager)
+{
+    $bookRepository = new BookRepository($databaseManager);
+    $foundBook = $bookRepository->find()[0];
+    echo '<pre>';
+    var_dump($foundBook);
+    echo '</pre>';
+    require 'editView.php';
 }

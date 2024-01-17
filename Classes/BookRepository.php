@@ -24,7 +24,12 @@ class BookRepository
     // Get one
     public function find(): array
     {
-        $query;
+        $query = "SELECT * FROM collection WHERE id = ?";
+        $statement = $this->databaseManager->connection->prepare($query);
+        $getData = [$_GET['id']];
+        $statement->execute($getData);
+        $book = $statement->fetchAll();
+        return $book;
     }
 
     // Get all

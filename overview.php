@@ -23,6 +23,7 @@
             <p><?= "For " . $book['System'] ?></p>
             <p><?= "Published by " . $book['Publisher'] . " in " . $book['PublishedYear']?></p>
             <p><?= "MSRP: €" . $book['MSRP'] ?></p>
+            <a href='?action=edit&id=<?= $book['ID']?>'>Edit details</a>
         </li>
     <?php endforeach; ?>
 </ul>
