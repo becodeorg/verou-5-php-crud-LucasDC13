@@ -14,15 +14,35 @@
 <form>
     <label for='title'>Title:</label>
     <input type='text' id='title' name='title' placeholder="Enter the book's title..."></input>
+    <br>
+    <label for='system'>System:</label>
+    <select id='system' name='system'>
+        <option>D&D 5e</option>
+        <option>Witcher RPG</option>
+        <option>Avatar Legends</option>
+        <option>Tiny Dungeon</option>
+        <option>Pugmire</option>
+    </select>
+    <br>
+    <label for='publisher'>Publisher:</label>
+    <input type='text' id='publisher' name='publisher' placeholder="Enter the book's publisher..."></input>
+    <br>
+    <label for='publishedYear'>Year published:</label>
+    <input type='numeric' id='publishedYear' name='publishedYear' placeholder="Enter the book's publishing year..."></input>
+    <br>
+    <label for='MSRP'>MSRP: €</label>
+    <input type='numeric' id='MSRP' name='MSRP' placeholder='xx.yy'></input>
 </form>
 
 
 <ul>
     <?php foreach ($books as $book) : ?>
-        <li><?= "Title: " . $book['Book'] ?></li>
-        <!-- <li><?= "For " . $book['System'] ?></li>
-        <li><?= "Published by " . $book['Publisher'] . " in " . $book['PublishedYear']?></li>
-        <li><?= "MSRP: €" . $book['MSRP'] ?></li> -->
+        <li>
+            <p><?= "Title: <b><em>" . $book['Title'] . "</em></b>" ?></p>
+            <p><?= "For " . $book['System'] ?></p>
+            <p><?= "Published by " . $book['Publisher'] . " in " . $book['PublishedYear']?></p>
+            <p><?= "MSRP: €" . $book['MSRP'] ?></p>
+        </li>
     <?php endforeach; ?>
 </ul>
 
