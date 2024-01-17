@@ -22,21 +22,21 @@ $databaseManager->connect();
 
 // Get the current action to execute
 // If nothing is specified, it will remain empty (home should be loaded)
-// $action = $_GET['action'] ?? null;
-$page = $_SERVER["REQUEST_URI"];
-$BASE_PATH = "localhost\BeCode\The Mountain\Fullstack\PHP\07-crud";
+$action = $_GET['action'] ?? null;
+// $page = $_SERVER["REQUEST_URI"];
+// $BASE_PATH = "\BeCode\The Mountain\Fullstack\PHP\07-crud";
 
 // Load the relevant action
 // This system will help you to only execute the code you want, instead of all of it (or complex if statements)
-switch ($page) {
-    case $BASE_PATH:
-        overview($databaseManager);
-        break;
-    case $BASE_PATH . 'create':
+switch ($action) {
+    case 'create':
         create($databaseManager);
         break;
-    case $BASE_PATH . 'edit':
+    case 'edit':
         echo "Editing ...";
+        break;
+    case 'delete':
+        echo "Deleting ...";
         break;
     default:
         overview($databaseManager);
@@ -55,7 +55,7 @@ function create($databaseManager)
     if(isset($_POST['submit'])) {
             $bookRepository = new BookRepository($databaseManager);
             $bookRepository->create();
+            overview($databaseManager);
     }
-    require 'createView.php';
-    // TODO: provide the create logic
+    else require 'createView.php';
 }

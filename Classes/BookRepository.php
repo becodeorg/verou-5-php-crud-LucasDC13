@@ -15,13 +15,16 @@ class BookRepository
 
     public function create(): void
     {
-
+        $query = "INSERT INTO collection (System, Title, MSRP, PublishedYear, Publisher) VALUES (?, ?, ?, ?, ?)";
+        $statement = $this->databaseManager->connection->prepare($query);
+        $postData = [$_POST['system'], $_POST['title'], $_POST['MSRP'], $_POST['publishedYear'], $_POST['publisher']];
+        $statement->execute($postData);
     }
 
     // Get one
     public function find(): array
     {
-
+        $query;
     }
 
     // Get all
