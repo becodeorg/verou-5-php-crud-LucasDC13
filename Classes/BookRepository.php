@@ -65,7 +65,10 @@ class BookRepository
 
     public function delete(): void
     {
-
+        $query = "DELETE FROM collection WHERE id = ?";
+        $postValues = [$_GET['id']];
+        $statement = $this->databaseManager->connection->prepare($query);
+        $statement->execute($postValues);
     }
 
 }

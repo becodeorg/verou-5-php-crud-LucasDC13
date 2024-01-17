@@ -33,11 +33,11 @@ switch ($action) {
         create($databaseManager);
         break;
     case 'edit':
-        echo "Editing ...";
         edit($databaseManager);
         break;
     case 'delete':
-        echo "Deleting ...";
+        echo "Deleted post n°" . $_GET['id'];
+        delete($databaseManager);
         break;
     default:
         overview($databaseManager);
@@ -72,4 +72,10 @@ function edit($databaseManager)
         $foundBook = $bookRepository->find()[0];
         require 'editView.php';
     }
+}
+
+function delete($databaseManager) {
+    $bookRepository = new BookRepository($databaseManager);
+    $bookRepository->delete();
+    overview($databaseManager);
 }
