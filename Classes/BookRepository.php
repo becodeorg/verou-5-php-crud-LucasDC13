@@ -50,7 +50,17 @@ class BookRepository
 
     public function update(): void
     {
-
+        $query = "UPDATE collection 
+        SET System = ?, Title = ?, MSRP = ?, PublishedYear = ?, Publisher = ? 
+        WHERE ID = ?";
+        $postValues =   [$_POST['system'], 
+                        $_POST['title'], 
+                        $_POST['MSRP'],
+                        $_POST['publishedYear'], 
+                        $_POST['publisher'], 
+                        $_GET['id']];
+        $statement = $this->databaseManager->connection->prepare($query);
+        $statement->execute($postValues);
     }
 
     public function delete(): void

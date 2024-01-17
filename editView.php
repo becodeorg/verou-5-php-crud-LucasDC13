@@ -15,7 +15,7 @@
     <a href='index.php'>Home</a>
 </nav>
 
-<form action='?action=update' method='post'>
+<form method='post'>
     <label for='title'>Title:</label>
     <input type='text' id='title' name='title' placeholder="Enter the book's title..." value='<?= $foundBook['Title']?>'></input>
     <br>

@@ -63,10 +63,13 @@ function create($databaseManager)
 
 function edit($databaseManager)
 {
-    $bookRepository = new BookRepository($databaseManager);
-    $foundBook = $bookRepository->find()[0];
-    echo '<pre>';
-    var_dump($foundBook);
-    echo '</pre>';
-    require 'editView.php';
+    if(isset($_POST['submit'])) {
+        $bookRepository = new BookRepository($databaseManager);
+        $bookRepository->update();
+        overview($databaseManager);
+    } else {
+        $bookRepository = new BookRepository($databaseManager);
+        $foundBook = $bookRepository->find()[0];
+        require 'editView.php';
+    }
 }
