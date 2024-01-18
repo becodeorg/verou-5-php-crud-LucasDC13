@@ -24,7 +24,7 @@
             <p><?= "Published by " . $book['Publisher'] . " in " . $book['PublishedYear']?></p>
             <p><?= "MSRP: €" . $book['MSRP'] ?></p>
             <a href='?action=edit&id=<?= $book['ID']?>'>Edit details</a>
-            <a href='?action=delete&id=<?= $book['ID']?>'>Delete post</a>
+            <a href='?action=delete&id=<?= $book['ID']?>&title=<?= $book['title']?>'>Delete post</a>
         </li>
     <?php endforeach; ?>
 </ul>

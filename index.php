@@ -57,8 +57,7 @@ function create($databaseManager)
             $bookRepository = new BookRepository($databaseManager);
             $bookRepository->create();
             overview($databaseManager);
-    }
-    else require 'createView.php';
+    } else require 'createView.php';
 }
 
 function edit($databaseManager)
